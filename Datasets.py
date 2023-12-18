@@ -124,16 +124,16 @@ class AdaFilterDataset(Dataset):
         neg_time = []
         if sample_num == 1:
             for i in range(sample_num):
-                event_sample = random.randint(1, self.args.type_size)
+                event_sample = random.randint(1, self.args.type_size-1)
                 time_sample = random.randint(0, self.args.barrel_size-1)
                 #type_seqs = event_seqs * self.args.barrel_size + time_seqs
                 while event_sample == event_seqs and time_seqs == time_sample:
-                    event_sample = random.randint(1, self.args.type_size)
+                    event_sample = random.randint(1, self.args.type_size-1)
                     time_sample = random.randint(0, self.args.barrel_size-1)
                 neg_event.append(event_sample)
                 neg_time.append(time_sample)
         else:
-            total_sample = [i + self.args.barrel_size for i in range(self.args.barrel_size * self.args.type_size) if i + self.args.barrel_size != event_seqs * self.args.barrel_size + time_seqs]
+            total_sample = [i + self.args.barrel_size for i in range(self.args.barrel_size * (self.args.type_size-1)) if i + self.args.barrel_size != event_seqs * self.args.barrel_size + time_seqs]
             neg_event.append([i // self.args.barrel_size for i in total_sample])
             neg_time.append([i % self.args.barrel_size for i in total_sample])
         return neg_event, neg_time

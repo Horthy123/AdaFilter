@@ -52,7 +52,7 @@ def main():
     parser.add_argument("--use_baseline", default=False, type=bool)
     parser.add_argument("--use_metaformer", default=False, type=bool)
     parser.add_argument("--ffn_multiplier", default=4, type=int)
-    parser.add_argument("--temporal_encoding_method", default="LTR", type=str)
+    parser.add_argument("--temporal_encoding_method", default="LTE", type=str)
     args = parser.parse_args()
 
     set_seed(args.seed)
