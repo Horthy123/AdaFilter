@@ -11,7 +11,7 @@ def main():
     parser = argparse.ArgumentParser()
     parser.add_argument("--data_dir", default="./data/", type=str)
     parser.add_argument("--output_dir", default="output/", type=str)
-    parser.add_argument("--data_name", default="mooc", type=str)
+    parser.add_argument("--data_name", default="retweet", type=str)
     parser.add_argument("--do_eval",default=False, type=bool)
     parser.add_argument("--load_model", default=None, type=str)
 
@@ -19,7 +19,7 @@ def main():
     parser.add_argument("--model_name", default="AdaFilter", type=str)
     parser.add_argument("--hidden_size", default=128, type=int, help="hidden size of model")
     parser.add_argument("--barrel_size", default=100, type=int, help="separated barrel size of time")
-    parser.add_argument("--num_hidden_layers", default=2, type=int, help="number of filter-enhanced blocks")
+    parser.add_argument("--num_hidden_layers", default=2, type=int, help="number of metafilter blocks")
     parser.add_argument("--num_attention_heads", default=4, type=int)
     parser.add_argument("--hidden_act", default="gelu", type=str) # gelu relu
     parser.add_argument("--attention_probs_dropout_prob", default=0.0, type=float)
@@ -40,7 +40,7 @@ def main():
     parser.add_argument("--use_residual", default=True, type=bool)
     parser.add_argument("--inner_size", default=128, type=int)
 
-    parser.add_argument("--seed", default=42, type=int)
+    parser.add_argument("--seed", default=5, type=int)
     parser.add_argument("--weight_decay", default=0.0, type=float, help="weight_decay of adam")
     parser.add_argument("--adam_beta1", default=0.9, type=float, help="adam first beta value")
     parser.add_argument("--adam_beta2", default=0.999, type=float, help="adam second beta value")
