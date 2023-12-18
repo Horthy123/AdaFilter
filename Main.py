@@ -104,7 +104,7 @@ def main():
                 print("Early stopping")
                 break
 
-        print("---------------Sample 99 results---------------")
+        print("---------------results---------------")
         # load the best model
         trainer.model.load_state_dict(torch.load(args.checkpoint_path))
         scores, result_info = trainer.test(0)
